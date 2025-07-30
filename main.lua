@@ -25,7 +25,15 @@ local KATE_ANIMTABLE = {
    [CHAR_ANIM_RUNNING] = KATE_ANIM_RUNNING
 }
 
-
+local PALETTE_CHAR = {
+    [PANTS]  = {r = 0x70, g = 0xea, b = 0x81},
+    [SHIRT]  = {r = 0x9b, g = 0xe4, b = 0xff},
+    [GLOVES] = {r = 0x15, g = 0x15, b = 0x1c},
+    [SHOES]  = {r = 0x62, g = 0x62, b = 0x62},
+    [HAIR]   = {r = 0x54, g = 0x31, b = 0x00},
+    [SKIN]   = {r = 0xff, g = 0xc1, b = 0x9e},
+    [CAP]    = {r = 0x9b, g = 0xe4, b = 0xff},
+}
 
 
 local CAPTABLE_KATE = {
