@@ -53,6 +53,11 @@ _G.charSelect.character_add_graffiti(CT_KATE, get_texture_info("char-select-graf
     -- the following must be hooked for each character added
 	_G.charSelect.character_add_animations(E_MODEL_KATE, KATE_ANIMTABLE)
 	
+	
+	
+	CT_KATE = _G.charSelect.character_add_costume("Kae Tee", {"Popstar K-18!", "Quite the silly gal!"}, "Kae Tee", {r = 195, g = 0, b = 60}, E_MODEL_KATE, CT_MARIO, TEX_KATE_ICON)
+	
+	
 else
     djui_popup_create("\\#ffffdc\\\n"..TEXT_MOD_NAME.."\nRequires the Character Select Mod\nto use as a Library!\n\nPlease turn on the Character Select Mod\nand Restart the Room!", 6)
 end
