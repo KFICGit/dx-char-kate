@@ -11,11 +11,18 @@
 local E_MODEL_KATE = smlua_model_util_get_id("KF_geo")
 
 local TEX_KATE_ICON = get_texture_info("kf-icon")
+local TEX_KATE_GRAFITTI = get_texture_info("char-select-graffiti-kate")
 
 local TEXT_MOD_NAME = "KF Select"
 
 local KATE_ANIMTABLE = {
-   [charSelect.CS_ANIM_MENU] = KATE_ANIM_CS_MENU 
+   [charSelect.CS_ANIM_MENU] = KATE_ANIM_CS_MENU, 
+   [CHAR_ANIM_IDLE_HEAD_LEFT] = KATE_ANIM_HEAD_LEFT,
+   [CHAR_ANIM_IDLE_HEAD_RIGHT] = KATE_ANIM_HEAD_LEFT,
+   [CHAR_ANIM_IDLE_HEAD_CENTER] = KATE_ANIM_HEAD_LEFT,
+   [CHAR_ANIM_FIRE_LAVA_BURN] = KATE_ANIM_FIREASS,
+   [CHAR_ANIM_WALKING] = KATE_ANIM_WALK,
+   [CHAR_ANIM_RUNNING] = KATE_ANIM_RUNNING
 }
 
 
@@ -32,6 +39,7 @@ if _G.charSelectExists then
     CT_KATE = _G.charSelect.character_add("KF", {"some gayass", "who likes toy bonnie"}, "KF", {r = 155, g = 228, b = 255}, E_MODEL_KATE, CT_MARIO, TEX_KATE_ICON)
 	local KATE_THEME = audio_stream_load("kate theme.ogg")
 _G.charSelect.character_add_menu_instrumental(CT_KATE, KATE_THEME)
+_G.charSelect.character_add_graffiti(CT_KATE, get_texture_info("char-select-graffiti-kate"))
 
     _G.charSelect.character_add_caps(E_MODEL_KATE, CAPTABLE_KATE)
     -- the following must be hooked for each character added
