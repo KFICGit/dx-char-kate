@@ -5,6 +5,10 @@ for i = 0, MAX_PLAYERS - 1 do
         bounceTargetX = 0,
         bounceTargetY = 0,
         bounceTargetZ = 0,
+
+        scaleX = 1,
+        scaleY = 1,
+        scaleZ = 1,
     }
 end
 
@@ -26,7 +30,9 @@ function act_kate_bounce_ground(m)
     end
 
     local objScale = math.abs(e.bounceHold)*0.01
-    obj_set_gfx_scale(m.marioObj, 1 + objScale, 1 - objScale, 1 + objScale)
+    e.scaleX = 1 + objScale
+    e.scaleY = 1 - objScale
+    e.scaleZ = 1 + objScale
     m.actionTimer = m.actionTimer + 1
 end
 
@@ -56,7 +62,9 @@ function act_kate_bounce_wall(m)
     end
 
     local objScale = math.abs(e.bounceHold)*0.01
-    obj_set_gfx_scale(m.marioObj, 1 - objScale, 1 + objScale, 1 - objScale)
+    e.scaleX = 1 - objScale
+    e.scaleY = 1 + objScale
+    e.scaleZ = 1 - objScale
     m.actionTimer = m.actionTimer + 1
 end
 
@@ -134,8 +142,10 @@ end
 function kate_update(m)
     local e = gKateExtraStates[m.playerIndex]
     m.peakHeight = m.pos.y
-    if m.action == ACT_KATE_BOUNCE_GROUND then
-    end
+    obj_set_gfx_scale(m.marioObj, e.scaleX, e.scaleY, e.scaleZ)
+    e.scaleX = math.lerp(e.scaleX, 1, 0.3)
+    e.scaleY = math.lerp(e.scaleY, 1, 0.3)
+    e.scaleZ = math.lerp(e.scaleZ, 1, 0.3)
 end
 
 _G.charSelect.character_hook_moveset(CT_KATE, HOOK_BEFORE_SET_MARIO_ACTION, before_kate_action)
