@@ -50,21 +50,16 @@ local CAPTABLE_KATE = {
     metalWing = smlua_model_util_get_id("KF_Cap_geo"),
 }
 
+CT_KATE = 0
 if _G.charSelectExists then
     CT_KATE = _G.charSelect.character_add("KF", {"some gayass", "who likes toy bonnie"}, "KF", {r = 155, g = 228, b = 255}, E_MODEL_KATE, CT_MARIO, TEX_KATE_ICON)
 	local KATE_THEME = audio_stream_load("kate theme.ogg")
-_G.charSelect.character_add_menu_instrumental(CT_KATE, KATE_THEME)
-_G.charSelect.character_add_graffiti(CT_KATE, get_texture_info("char-select-graffiti-kate"))
-
+    _G.charSelect.character_add_menu_instrumental(CT_KATE, KATE_THEME)
+    _G.charSelect.character_add_graffiti(CT_KATE, get_texture_info("char-select-graffiti-kate"))
     _G.charSelect.character_add_caps(E_MODEL_KATE, CAPTABLE_KATE)
-    -- the following must be hooked for each character added
 	_G.charSelect.character_add_animations(E_MODEL_KATE, KATE_ANIMTABLE)
 	
-	
-	
-	CT_KATE = _G.charSelect.character_add_costume("Kae Tee", {"Popstar K-18!", "Quite the silly gal!"}, "Kae Tee", {r = 195, g = 0, b = 60}, E_MODEL_KATE, CT_MARIO, TEX_KATE_ICON)
-	
-	
+	CT_KATE_ALT = _G.charSelect.character_add_costume("Kae Tee", {"Popstar K-18!", "Quite the silly gal!"}, "Kae Tee", {r = 195, g = 0, b = 60}, E_MODEL_KATE, CT_MARIO, TEX_KATE_ICON)
 else
     djui_popup_create("\\#ffffdc\\\n"..TEXT_MOD_NAME.."\nRequires the Character Select Mod\nto use as a Library!\n\nPlease turn on the Character Select Mod\nand Restart the Room!", 6)
 end
