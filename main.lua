@@ -9,6 +9,7 @@
 ]]
 
 local E_MODEL_KATE = smlua_model_util_get_id("KF_geo")
+local E_MODEL_IC = smlua_model_util_get_id("IC_geo")
 
 local TEX_KATE_ICON = get_texture_info("kf-icon")
 local TEX_KATE_GRAFITTI = get_texture_info("char-select-graffiti-kate")
@@ -59,7 +60,8 @@ if _G.charSelectExists then
     _G.charSelect.character_add_caps(E_MODEL_KATE, CAPTABLE_KATE)
 	_G.charSelect.character_add_animations(E_MODEL_KATE, KATE_ANIMTABLE)
 	
-	CT_KATE_ALT = _G.charSelect.character_add_costume("Kae Tee", {"Popstar K-18!", "Quite the silly gal!"}, "Kae Tee", {r = 195, g = 0, b = 60}, E_MODEL_KATE, CT_MARIO, TEX_KATE_ICON)
+	CT_ALT_KAE_TEE = _G.charSelect.character_add_costume(CT_KATE, "Kae Tee", {"Popstar K-18!", "Quite the silly gal!"}, "KF", {r = 195, g = 0, b = 60}, E_MODEL_KATE, CT_MARIO, TEX_KATE_ICON)
+    CT_ALT_IC = _G.charSelect.character_add_costume(CT_KATE, "IC", {"Evill"}, "KF", {r = 195, g = 0, b = 60}, E_MODEL_IC, CT_MARIO, TEX_KATE_ICON)
 else
     djui_popup_create("\\#ffffdc\\\n"..TEXT_MOD_NAME.."\nRequires the Character Select Mod\nto use as a Library!\n\nPlease turn on the Character Select Mod\nand Restart the Room!", 6)
 end
